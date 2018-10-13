@@ -29,3 +29,7 @@ it("Should throw an exception when it encounters negative numbers and list them"
 it("Should throw an exception when it encounters negative numbers and list them", () => {
 	expect(function(){add("2,-4,3,-5")}).toThrow(/^Negatives not allowed:-4,-5$/);
 });
+// Ignore numbers greater than 1000 
+it("Should ignore numbers that are larger than 1000", () => {
+	expect(add("1001,2")).toBe(2);
+});

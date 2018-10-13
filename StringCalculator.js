@@ -26,13 +26,16 @@ function sumOf(number) {
 		// If negative number is encountered
         if(numberArray[i] < 0) {
             if(i == numberArray.length - 1) {
+            	// Without comma at the end
                 illegalArray += "" + numberArray[i];
             }
             else {
+            	// With comma at the end
                 illegalArray += "" + numberArray[i] + ",";
             }
         }
-        else {
+        // Filters out numbers that are greater than 1000 
+        if(parseInt(numberArray[i]) <= 1000) {
         	sum += parseInt(numberArray[i]);
         }
 	}
