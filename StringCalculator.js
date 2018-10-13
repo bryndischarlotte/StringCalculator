@@ -21,9 +21,25 @@ function add(number) {
 function sumOf(number) {
 	var numberArray = number.split(/[ , \n]/);
 	var sum = 0; 
+	var illegalArray = "";
 	for(var i = 0; i < numberArray.length; i++) {
-		sum += parseInt(numberArray[i]);
+		// If negative number is encountered
+        if(numberArray[i] < 0) {
+            if(i == numberArray.length - 1) {
+                illegalArray += "" + numberArray[i];
+            }
+            else {
+                illegalArray += "" + numberArray[i] + ",";
+            }
+        }
+        else {
+        	sum += parseInt(numberArray[i]);
+        }
 	}
+	// If there is anything in the negative array throw exception
+	if(illegalArray.length > 0) {
+        throw "Negatives not allowed:" + illegalArray;
+    }
 	return sum; 
 }
 

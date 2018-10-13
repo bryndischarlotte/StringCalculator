@@ -21,3 +21,11 @@ it("Should return the sum of multiple numbers", () => {
 it("Should return sum of multiple numbers with two different delimeters in between", () => {
 	expect(add("1\n2,3")).toBe(6);
 });
+// Negative number exception test 1
+it("Should throw an exception when it encounters negative numbers and list them", () => {
+	expect(function(){add("-1,2")}).toThrow("Negatives not allowed:-1");
+});
+// Negative number exception test 2
+it("Should throw an exception when it encounters negative numbers and list them", () => {
+	expect(function(){add("2,-4,3,-5")}).toThrow(/^Negatives not allowed:-4,-5$/);
+});
