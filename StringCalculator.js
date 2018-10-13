@@ -6,7 +6,7 @@ function add(number) {
 		return 0;
 	}
 	// Multiple numbers
-	if(number.includes(",")) {
+	if(number.includes(",") || number.includes("\n")) {
 		return sumOf(number);
 	}
 	// Single number
@@ -19,7 +19,7 @@ function add(number) {
 
 // Sum of numbers in string
 function sumOf(number) {
-	var numberArray = number.split(",");
+	var numberArray = number.split(/[ , \n]/);
 	var sum = 0; 
 	for(var i = 0; i < numberArray.length; i++) {
 		sum += parseInt(numberArray[i]);

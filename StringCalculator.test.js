@@ -17,3 +17,7 @@ it("Should return the sum of two numbers when two numebrs are in the string", ()
 it("Should return the sum of multiple numbers", () => {
 	expect(add("1,2,3")).toBe(6);
 });
+// Two delimeters allowed 
+it("Should return sum of multiple numbers with two different delimeters in between", () => {
+	expect(add("1\n2,3")).toBe(6);
+});
