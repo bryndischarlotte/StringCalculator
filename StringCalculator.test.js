@@ -33,3 +33,11 @@ it("Should throw an exception when it encounters negative numbers and list them"
 it("Should ignore numbers that are larger than 1000", () => {
 	expect(add("1001,2")).toBe(2);
 });
+// Identify new delimeter
+it("Should identify a new delimeter, and return sum of multiple numbers", () => {
+	expect(add("//;\n1;2")).toBe(3);
+}); 
+// Identify new delimeter extra test
+it("Should identify a new delimeter, and return sum of multiple numbers", () => {
+	expect(add("//;asd\n1;asd2")).toBe(3);
+}); 

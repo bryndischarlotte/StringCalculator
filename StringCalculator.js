@@ -5,6 +5,10 @@ function add(number) {
 	if(number == "") {
 		return 0;
 	}
+	// Detect request for new delimeter
+	if(number.startsWith("//")) {
+		return delimeterSum(number);
+	}
 	// Multiple numbers
 	if(number.includes(",") || number.includes("\n")) {
 		return sumOf(number);
@@ -44,6 +48,19 @@ function sumOf(number) {
         throw "Negatives not allowed:" + illegalArray;
     }
 	return sum; 
+}
+// Sum of numbers with new delimter
+function delimeterSum(number) {
+	var readDelim = number.slice(2, number.indexOf("\n"));
+	var newDelim = new RegExp(readDelim, "g");
+	var numberArray = number.replace(newDelim, ",");
+	numberArray = numberArray.split(/[ , \n]/);
+
+	var sum = 0; 
+	for(var i = 2; i < numberArray.length; i++) {
+        sum += parseInt(numberArray[i]);
+    }
+    return sum; 
 }
 
 module.exports = add; 
