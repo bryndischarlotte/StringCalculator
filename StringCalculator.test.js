@@ -13,3 +13,7 @@ it("Should return a number when only one number is in the string", () => {
 it("Should return the sum of two numbers when two numebrs are in the string", () => {
 	expect(add("1,2")).toBe(3);
 });
+// Multiple number test
+it("Should return the sum of multiple numbers", () => {
+	expect(add("1,2,3")).toBe(6);
+});
